@@ -127,6 +127,35 @@ Question 2. Creating & 'console.log()'ing variables \n`);
 //  ↓ YOUR CODE HERE ↓
     console.log("Introducing " + fullName + " who lives at " + orderAddress);
 
+// OPEN CLASS INTRO test
+// You have been given two variables, num1 and num2, each with predefined values as test cases. Your task is to calculate the sum of these variables and display the result using the console.log()
+//  ↓ YOUR CODE HERE ↓
+var num1 = 10;
+var num2 = 2;
+console.log("The sum of " + num1 + " and " + num2 + " is " + (num1 + num2));
+console.log(num1 + num2);
 
+var x = 5;
+var y = 6;
+x = 3 + y;
+var z = x + y;
+y = 5 + 2*x;
+x = y;
+console.log(z);
+
+var x = 35;
+var y = "20";
+var z = x + y;
+console.log(z);
+
+var x = 25;
+var y = 3;
+var z = "Z = " + (x*2);
+console.log(z);
+
+var num1 = 3;
+var num2 = 2;
+var x = num1 * 2 + num2 * 3;
+console.log(x);
 
     console.log('-----------Finished------------')
