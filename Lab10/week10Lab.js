@@ -42,9 +42,59 @@ Part 1: Create a form with only JavaScript`)
            Do the same steps, appending a label/input for Email, and a submit button to your form.
  * ↓ YOUR CODE HERE ↓ */
 
-// console.log(myForm)
+// create form
+let myForm = document.createElement('form')
+document.body.append(myForm)
+
+// form field: name
+let myNameLabel = document.createElement('label')
+let myNameInput = document.createElement('input')
+myNameLabel.innerHTML = 'Name'
+
+myForm.append(myNameLabel)
+myForm.append(myNameInput)
+
+// form field: email
+let myEmailLabel = document.createElement('label')
+let myEmailInput = document.createElement('input')
+myEmailLabel.innerHTML = 'Email'
+
+myForm.append(myEmailLabel)
+myForm.append(myEmailInput)
+
+// Submit button
+mySubmitButton = document.createElement('button')
+mySubmitButton.innerHTML = 'Submit'
+
+
+// add inputs to form (extra step)
+myForm.append(mySubmitButton)
+mySubmitButton.addEventListener('click', (event) => {
+   event.preventDefault()
+   const nameValue = myNameInput.value
+   const emailValue = myEmailInput.value
+   const newRow = document.createElement('tr')
+   const newNameCell = document.createElement('td')
+   const newEmailCell = document.createElement('td')
+   newNameCell.innerHTML = nameValue
+   newEmailCell.innerHTML = emailValue
+   newRow.append(newNameCell)
+   newRow.append(newEmailCell)
+   myTable.append(newRow)
+
+   newNameCell.style.border = '1px solid black'
+   newNameCell.style.borderCollapse = 'collapse'
+   newEmailCell.style.border = '1px solid black'
+   newEmailCell.style.borderCollapse = 'collapse'
+   myNameInput.value = ''
+   myEmailInput.value = ''
+})
+
+// log the form to the console
+console.log(myForm)
+
 //Question: Besides changing the innerHTML, what other HTML things can we change using JavaScript?
-//Answer:
+//Answer: class, id, style, attributes, values, properties, etc.
 
 /*------------------------ Styling a form with only JavaScript------------------------*/
 console.log(`-------------------------- 
@@ -59,9 +109,15 @@ Part 2: Styling our form with only JavaScript`)
  *  Step 3: Give your form a display of flex, a flex-direction of column, and a max-width of 250px
  *
  * ↓ YOUR CODE HERE ↓ */
+myForm.style.backgroundColor = 'rgb(210, 35, 131)'
+myForm.style.color = 'white'
+myForm.style.display = 'flex'
+myForm.style.flexDirection = 'column'
+myForm.style.maxWidth = '250px'
+myForm.style.padding = '10px'
 
 //Question: Do you prefer styling with JavaScript or CSS?
-//Answer:
+//Answer: I like to use CSS for styling
 
 /*------------------------ Creating a table with only JavaScript ------------------------*/
 console.log(`-------------------------- 
@@ -80,10 +136,52 @@ Part 3: Creating a table with only JavaScript`)
  * Final Step: Style your table using JavaScript starting with a border. You may need to target more element/nodes than we did with myTable.
  * ↓ YOUR CODE HERE ↓ */
 
-// console.log(myTable)
+let myTable = document.createElement('table')
+let myRow = document.createElement('tr')
+let myNameCell = document.createElement('td')
+let myEmailCell = document.createElement('td')
+
+myNameCell.innerHTML = 'Name'
+myEmailCell.innerHTML = 'Email'
+
+console.log(myEmailCell)
+
+myTable.append(myRow)
+myRow.append(myNameCell)
+myRow.append(myEmailCell)
+
+let myRow2 = document.createElement('tr')
+let myNameCell2 = document.createElement('td')
+let myEmailCell2 = document.createElement('td')
+myNameCell2.innerHTML = 'John Doe'
+myEmailCell2.innerHTML = 'john@doe.com'
+
+myTable.append(myRow2)
+myRow2.append(myNameCell2)
+myRow2.append(myEmailCell2)
+
+document.body.append(myTable)
+
+myTable.style.width = '50%'
+myTable.style.border = '1px solid black'
+myTable.style.borderCollapse = 'collapse'
+myRow.style.border = '1px solid black'
+myRow.style.borderCollapse = 'collapse'
+myNameCell.style.border = '1px solid black'
+myNameCell.style.borderCollapse = 'collapse'
+myEmailCell.style.border = '1px solid black'
+myEmailCell.style.borderCollapse = 'collapse'
+myNameCell2.style.border = '1px solid black'
+myNameCell2.style.borderCollapse = 'collapse'
+myEmailCell2.style.border = '1px solid black'
+myEmailCell2.style.borderCollapse = 'collapse'
+
+
+console.log(myTable)
+
 //Question: While this is clearly a more round-about way of making a table, how can using JavaScript in this way
 //          more beneficial than HTML?
-//Answer:
+//Answer: make dynamic tables, create tables based on user input
 
 /*------------------------ Changing our body background on click ------------------------*/
 console.log(`-------------------------- 
@@ -103,10 +201,14 @@ Part 4: Changing our background on click`)
  * Step 7: Click the button in your index.html and see the background change!
  *
  * ↓ YOUR CODE HERE ↓ */
+const myButton = document.getElementById('myButton').addEventListener('click', () => {
+   document.body.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`
+})
+
 
 //Question: What other event listeners are there?
-//             Try them out by replacing 'click' in your function above!
-//Answer:
+//             Try them out by replacing 'click' in your function above! [tried mouseover and mousemove]
+//Answer: mouseup, mousedown, mouseover, mousemove, mouseleave, keydown, keyup, focus, blur, change, input
 
 console.log(`-----------Finished------------`)
 
@@ -119,3 +221,23 @@ console.log(`-----------Finished------------`)
  *    and append a new <tr> containing those values to your tBody element.
  *    Look into event.preventDefault(). Buttons inside of forms have a default setting to refresh the page.
  */
+
+const changeButton = document.createElement('button')
+changeButton.innerHTML = 'Change Text'
+document.body.append(changeButton)
+const myDiv = document.createElement('div')
+myDiv.innerHTML = 'Hello'
+document.body.append(myDiv)
+changeButton.addEventListener('click', () => {
+   myDiv.innerHTML = myDiv.innerHTML === 'Hello' ? 'World' : 'Hello'
+})
+
+
+const myImage = document.createElement('img')
+myImage.src = 'https://i.pinimg.com/originals/3d/06/8a/3d068af010ecf2aefdc728afde29967c.gif'
+myImage.style.width = '150px'
+myImage.style.height = '150px'
+document.body.append(myImage)
+myImage.addEventListener('mousedown', () => {
+   myImage.style.display = 'none'
+})
